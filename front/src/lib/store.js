@@ -17,7 +17,7 @@ export async function requestFtx(perp, startTime, endTime) {
   // fetch https://ftx.com/api/funding_rates with as parameter future, startTime, endTime
   // return the result
   // https://ftx.com/api/funding_rates?future=BTC-PERP&start_time=1610000000&end_time=1610000000
-  const url = `http://api.bnkd.me/fundings?future=${perp}&start_time=${startTime}&end_time=${endTime}`;
+  const url = `https://faas-fra1-afec6ce7.doserverless.co/api/v1/web/fn-72226b86-af8a-4e1e-b7ed-134bd7f3ae5f/ftx/funding?future=${perp}&startTime=${startTime}&endTime=${endTime}`;
   const response = await fetch(url, {
     method: "GET",
     redirect: "follow",
@@ -32,7 +32,6 @@ export async function requestFtx(perp, startTime, endTime) {
 export function calculateFunding(fundings, positionSize, side) {
   let result = 0;
   fundings.forEach((f) => {
-    console.log(f);
     // if side is long, then we need to pay the funding rate
     // if side is short, then we need to receive the funding rate
     if (side === "long") {
