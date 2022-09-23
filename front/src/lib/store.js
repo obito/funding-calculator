@@ -17,7 +17,7 @@ export async function requestFtx(perp, startTime, endTime) {
   // fetch https://ftx.com/api/funding_rates with as parameter future, startTime, endTime
   // return the result
   // https://ftx.com/api/funding_rates?future=BTC-PERP&start_time=1610000000&end_time=1610000000
-  const url = `http://localhost:10000/fundings?future=${perp}&start_time=${startTime}&end_time=${endTime}`;
+  const url = `http://ftx.bnkd.me/api/fundings?future=${perp}&start_time=${startTime}&end_time=${endTime}`;
   const response = await fetch(url, {
     method: "GET",
     redirect: "follow",

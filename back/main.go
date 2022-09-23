@@ -42,7 +42,7 @@ func setupRouter() *gin.Engine {
 		c.String(http.StatusOK, "pong")
 	})
 
-	r.GET("fundings", func(c *gin.Context) {
+	r.GET("/fundings", func(c *gin.Context) {
 
 		var fr FundingRates
 		if err := c.ShouldBindWith(&fr, binding.Query); err != nil {
